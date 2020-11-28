@@ -31,14 +31,14 @@ Things you may want to cover:
 |email|string|null: false|
 |password|string|null: false|
 ### Association
-- belongs_to :chat_group_member
+- has_many :chat_group_members,through: :groups
 
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |group_name|string|null: false|
 ### Association
-- belongs_to :chat_group_member
+- has_many :chat_group_members,through: :users
 
 ## chat_group_membersテーブル
 |Column|Type|Options|
@@ -46,8 +46,8 @@ Things you may want to cover:
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 ### Association
-- has_many :users
-- has_many :groups
+- belongs_to :user
+- belongs_to :group
 - has_many :messages
 
 ## messageテーブル
