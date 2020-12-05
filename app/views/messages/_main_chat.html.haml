@@ -1,0 +1,43 @@
+.Chat-main
+  .Chat-main__head
+    .Group-name
+      test
+      .Menber
+        .Menber-title
+          Menber：
+        .Menber-name
+          masa
+    .Edit__btn
+      =link_to 'Edit','#'
+  .Chat-main__message
+    .MessageArea
+      .Message__head
+        .Message__name
+          masa
+        .Message__data
+          2019/11/20(web) 17:43:01
+      .Message__text
+        おはよう！
+      .Message__head
+        .Message__name
+          masa
+        .Message__data
+          2019/11/20(web) 17:43:01
+      .Message__text
+        こんにちは！
+      .Message__head
+        .Message__name
+          masa
+        .Message__data
+          2019/11/20(web) 17:43:01
+      .Message__text
+        こんばんは！
+  .Chat-main__form
+    .FormArea
+      .Form__text
+        %input{type: "text", class:"Form__text", placeholder:"type a message"}   
+        %label{class: "picicon"}
+          = icon('far', 'image')
+          %input{type: "file"}
+      .Submit__btn
+        %input{type: "submit", class:"submit__btn",value: "Send"}
