@@ -9,7 +9,7 @@
     width: 300px;
     background-color: #253141;
 
-    .Side-bar__user {
+    &__user {
       height: 100px;
       padding: 0 20px;
       display: flex;
@@ -37,7 +37,7 @@
         }
       }
     }
-    .Side-bar__group {
+    &__group {
       height: calc(100vh - 100px);
       background-color: #2f3e51;
       .Group-logs {
@@ -59,7 +59,7 @@
     width: calc(100vw - 300px);
     background-color: #ffffff;
 
-    .Chat-main__head {
+    &__head {
       height: 100px;
       background-color: #ffffff;
       border: #eeeeee 1px solid;
@@ -97,7 +97,7 @@
           }
         }
     }
-    .Chat-main__message {
+    &__message {
       height: calc(100vh - 100px - 90px);
       background-color: #fafafa;
       .MessageArea {
@@ -123,7 +123,7 @@
         }
       }
     }
-    .Chat-main__form {
+    &__form {
       height: 90px;
       background-color: #d2d2d2;
       .FormArea {
