@@ -9,18 +9,10 @@
         = link_to edit_user_path(current_user), class: "Contents__btn" do
           = icon('fas', 'cog', class: 'moving')
   .Side-bar__group
-    .Group-logs
-      .Group-log__high
-        techcamp
-      .Group-log__low
-        まだメッセージがありません
-    .Group-logs
-      .Group-log__high
-        techcamp
-      .Group-log__low
-        まだメッセージがありません
-    .Group-logs
-      .Group-log__high
-        techcamp
-      .Group-log__low
-        まだメッセージがありません
+    - current_user.groups.each do |group|
+      .Group-logs
+        = link_to '#' do
+          .Group-log__high
+            = group.name
+          .Group-log__low
+            まだメッセージがありません
