@@ -1,6 +1,10 @@
 * {
   box-sizing: border-box;
 }
+
+a {
+  text-decoration: none;
+}
 .wrapper {
   display: flex;
 
@@ -42,7 +46,12 @@
       background-color: #2f3e51;
       .Group-logs {
         height: 91px;
-        color: #ffffff;
+        
+
+        a {
+          color: #ffffff;
+        }
+
         .Group-log__high {
           padding: 20px 20px 5px 20px;
           font-size: 15px;
