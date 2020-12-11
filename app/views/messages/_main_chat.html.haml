@@ -1,43 +1,24 @@
 .Chat-main
   .Chat-main__head
     .Group-name
-      test
+      = @group.name
       .Menber
         .Menber-title
           Menber：
         .Menber-name
-          masa
+          - @group.group_users.each do |group_user|
+            = group_user.user.name
     .Edit__btn
-      =link_to 'Edit','#'
+      = link_to 'Edit', edit_group_path(@group)
+      
   .Chat-main__message
-    .MessageArea
-      .Message__head
-        .Message__name
-          masa
-        .Message__data
-          2019/11/20(web) 17:43:01
-      .Message__text
-        おはよう！
-      .Message__head
-        .Message__name
-          masa
-        .Message__data
-          2019/11/20(web) 17:43:01
-      .Message__text
-        こんにちは！
-      .Message__head
-        .Message__name
-          masa
-        .Message__data
-          2019/11/20(web) 17:43:01
-      .Message__text
-        こんばんは！
+    = render @messages
+ 
   .Chat-main__form
-    .FormArea
-      .Form__text
-        %input{type: "text", class:"Form__text", placeholder:"type a message"}   
-        %label{class: "picicon"}
-          = icon('far', 'image')
-          %input{type: "file"}
-      .Submit__btn
-        %input{type: "submit", class:"submit__btn",value: "Send"}
+    = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
+      .FormArea
+        = f.text_field :content, class: 'Form__text', placeholder: 'type a message'
+        = f.label :image, class: 'picicon' do
+          = icon('far', 'image', class: 'Form__icon')
+          = f.file_field :image, class: 'Hidden'
+      = f.submit 'Send', class: 'Submit__btn'
