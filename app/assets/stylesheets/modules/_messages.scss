@@ -44,10 +44,10 @@ a {
     &__group {
       height: calc(100vh - 100px);
       background-color: #2f3e51;
+      overflow: scroll;
       .Group-logs {
         height: 91px;
         
-
         a {
           color: #ffffff;
         }
@@ -109,8 +109,9 @@ a {
     &__message {
       height: calc(100vh - 100px - 90px);
       background-color: #fafafa;
+      padding: 35px 40px 0;
+      overflow: scroll;
       .MessageArea {
-        padding: 35px 0 0 40px;
         .Message__head {
           display: flex;
           .Message__name {
@@ -130,31 +131,35 @@ a {
           font-size: 14px;
           padding-bottom: 46px;
         }
+        .Message__image {
+          height: 300px;
+        }
       }
     }
     &__form {
       height: 90px;
       background-color: #d2d2d2;
-      .FormArea {
+      .Form {
         padding: 20px 40px 20px 50px;
         display: flex;
         justify-content: space-between;
-        .Form__text {
-          background-color: #ffffff;
-          height: 50px;
-          width: 100%;
-          border-style: none;
+        .FormArea {
           display: flex;
           align-items: center;
           position: relative;
-          input {
+          width: 100%;
+          .Form__text {
             padding-left: 10px;
+            border-style: none;
+            background-color: #ffffff;
+            height: 50px;
+            width: 100%;
           }
           .picicon {
             font-size: 25px;
             position: absolute;
             right: 10px;
-            input { 
+            .Hidden { 
               display: none;
             }
           }
@@ -165,13 +170,9 @@ a {
           margin-left: 15px;
           padding: 0px 30px;
           line-height: 50px;
-
-          input {
-            background-color: #38aef0;
-            color: #ffffff;
-            font-size: 16px;
-            border-style: none;
-          }
+          color: #ffffff;
+          font-size: 16px;
+          border-style: none;
         }
       }
     }
