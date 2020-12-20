@@ -1,8 +1,30 @@
 $(function(){
+  let reloadMessages = function() {
+    let last_message_id = $('.MessageBox:last').data("message-id") || 0;
+    $.ajax({
+      url: "api/messages",
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      if (messages.length !== 0) {
+        let insertHTML = '';
+        $.each(messages, function(i, message) {
+          insertHTML += buildHTML(message)
+        });
+        $('.MessageField').append(insertHTML);
+      }
+    })
+    .fail(function() {
+      alert('error');
+    });
+  };
+
   function buildHTML(message){
     if ( message.image ) {
       let html =
-        `<div class="MessageArea">
+        `<div class="MessageArea" data-message-id=${message.id}>
           <div class="Message__head">
             <div class="Message__name">
               ${message.user_name}
@@ -21,7 +43,7 @@ $(function(){
       return html;
     } else {
       let html =
-      `<div class="MessageArea">
+      `<div class="MessageArea" data-message-id=${message.id}>
         <div class="Message__head">
           <div class="Message__name">
             ${message.user_name}
