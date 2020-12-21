@@ -1,26 +1,4 @@
 $(function(){
-  let reloadMessages = function() {
-    let last_message_id = $('.MessageBox:last').data("message-id") || 0;
-    $.ajax({
-      url: "api/messages",
-      type: 'get',
-      dataType: 'json',
-      data: {id: last_message_id}
-    })
-    .done(function(messages) {
-      if (messages.length !== 0) {
-        let insertHTML = '';
-        $.each(messages, function(i, message) {
-          insertHTML += buildHTML(message)
-        });
-        $('.MessageField').append(insertHTML);
-      }
-    })
-    .fail(function() {
-      alert('error');
-    });
-  };
-
   function buildHTML(message){
     if ( message.image ) {
       let html =
@@ -83,6 +61,7 @@ $(function(){
     })
     .fail(function() {
       alert("メッセージ送信に失敗しました");
-    })
+      $('.Form__submit').prop("disabled", false);
+    });
   });
 });
